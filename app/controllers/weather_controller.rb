@@ -5,10 +5,5 @@ class WeatherController < ApplicationController
 		@conditions = Condition.new
 		@conditions.current_conditions
 	end
-
-	def show
-
-		
-	end
 end
 
