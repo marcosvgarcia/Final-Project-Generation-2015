@@ -1,0 +1,14 @@
+<h1 style="text-align: center"> TechnoWeather </h1>
+
+<strong>Select your necessity: </strong>
+<%= select_tag(:user_need, options_for_select(['', 'water', 'energy'])) %>
+
+<ul>
+	<li>LOCATION: <%= @conditions.country %>, <%= @conditions.city %></li>
+	<li>TEMPERATURE (ºF): <%= @conditions.fahrenheit %></li>
+	<li>TEMPERATURE (ºC): <%= @conditions.celsius %></li>
+	<li>HUMIDITY: <%= @conditions.humidity %></li>
+	<li>WIND: <%= @conditions.wind %></li>
+	<li>RADIATION: <%= @conditions.sun %></li>
+</ul>
+
