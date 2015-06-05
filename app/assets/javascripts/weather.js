@@ -21,19 +21,26 @@ $(document).ready(function() {
     	lat = event.latLng.lat();
     	lng = event.latLng.lng();
 
-    	coordinates = {'latitude': lat,
-    				   'longitude': lng };
-    
+    	coordinates = {latitude: lat,
+    				   longitude: lng };
+
     	$.ajax({
-			type: "POST",
 			url: "http://localhost:3000/weather",
 			data: coordinates,
-			success: function(){console.log("OK")},
+			success: function(response){console.log("OK"); populate_ul(response) },
 			error: function(){console.log("WRONG")},
 			dataType: "json"
-		}); 
 
-		alert(coordinates['latitude'] + ',' + coordinates['longitude']);
+		});
+
+
+		function populate_ul(element) {
+
+			$("ul").empty();
+			
+			$("ul").append("<li>LOCATION: " + element.country + ", " + element.city + "</li><li>TEMPERATURE (ºF): " + element.fahrenheit + "</li><li>TEMPERATURE (ºC): " + element.celsius + "</li><li>HUMIDITY: " + element.humidity + "</li><li>WIND: " + element.wind + "</li><li>RADIATION: " + element.sun + "</li>");
+		}
+
 	});
 });
 

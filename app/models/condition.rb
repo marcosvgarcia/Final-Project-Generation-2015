@@ -3,19 +3,10 @@ require 'open-uri'
 class Condition 
 	attr_accessor :country, :city, :humidity, :fahrenheit, :celsius, :wind, :sun
 
-	def current_conditions
+	def current_conditions(coordinates)
 
-    coordinates = {}
-
-    if coordinates === {}
-
-      coordinates = {'latitude' => 40.4382761,
-                     'longitude'=> -3.6814484
-      }
-    end
-
-    lat = coordinates['latitude'].to_s
-    lng = coordinates['longitude'].to_s
+    	lat = coordinates['latitude'].to_s
+    	lng = coordinates['longitude'].to_s
   
 		open('http://api.wunderground.com/api/10e35db57db73b9a/geolookup/conditions/q/'+ lat +','+ lng +'.json') do |f|
 			json_string = f.read
