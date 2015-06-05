@@ -10,7 +10,8 @@ $(document).ready(function() {
 	function initialize() {
 	    var mapOptions = {
 			center: { lat: 0.0, lng: 0.0},
-	  		zoom: 2
+	  		zoom: 2,
+	  		disableDoubleClickZoom: true
 		};
 		
 		map = new google.maps.Map(document.getElementById("location"), mapOptions);
