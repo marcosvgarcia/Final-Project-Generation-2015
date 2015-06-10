@@ -17,8 +17,24 @@ li {
 	float: left;
 }
 
+#pac-input {
+	background-color: #fff;
+	font-family: Roboto;
+	font-size: 15px;
+	font-weight: 300;
+	margin-top: 2px;
+	margin-left: 12px;
+	padding: 0 11px 0 13px;
+	text-overflow: ellipsis;
+	width: 400px;
+}
+
+#pac-input:focus {
+	border-color: #4d90fe;
+}
+
 #current_conditions {
-	margin-top: 3rem;
+	margin-top: 1rem;
 	margin-left: 15rem;
 }
 
