@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
 
-  	resources :weather
+  	get '/weather', to: 'weather#index'
 end

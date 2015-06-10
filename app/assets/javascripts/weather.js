@@ -116,7 +116,6 @@ $(document).ready(function() {
 						   "</li><li>TEMPERATURE (ºC): " + current.celsius + 
 						   "</li><li>HUMIDITY: " + current.humidity + 
 						   "</li><li>WIND: " + current.wind + 
-						   "</li><li>RADIATION: " + current.sun + "</li>" +
 						   "</li><li>WATER PRODUCTION: " + water_production(current) + " L</li>");
 		}
 
