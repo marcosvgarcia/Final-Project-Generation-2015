@@ -28,18 +28,24 @@ $(document).ready(function() {
     	$.ajax({
 			url: "http://localhost:3000/weather",
 			data: coordinates,
-			success: function(response){console.log("OK"); populate_ul(response) },
+			success: function(response){console.log("OK"); conditions_ul(response) },
 			error: function(){console.log("WRONG")},
 			dataType: "json"
 
 		});
 
 
-		function populate_ul(element) {
+		function conditions_ul(current) {
 
 			$("ul").empty();
 			
-			$("ul").append("<li>LOCATION: " + element.country + ", " + element.city + "</li><li>TEMPERATURE (ºF): " + element.fahrenheit + "</li><li>TEMPERATURE (ºC): " + element.celsius + "</li><li>HUMIDITY: " + element.humidity + "</li><li>WIND: " + element.wind + "</li><li>RADIATION: " + element.sun + "</li>");
+			$("ul").append("<li>LOCATION: " + current.country + ", " + current.city + 
+						   "</li><li>TEMPERATURE (ºF): " + current.fahrenheit + 
+						   "</li><li>TEMPERATURE (ºC): " + current.celsius + 
+						   "</li><li>HUMIDITY: " + current.humidity + 
+						   "</li><li>WIND: " + current.wind + 
+						   "</li><li>RADIATION: " + current.sun + "</li>" +
+						   "</li><li>WATER PRODUCTION: " + current.water_production + "</li>");
 		}
 
 	});

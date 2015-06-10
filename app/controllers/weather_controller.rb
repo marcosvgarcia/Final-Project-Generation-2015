@@ -20,6 +20,8 @@ class WeatherController < ApplicationController
 
 		@conditions.current_conditions(coordinates)
 
+		@conditions.water_production
+
 		respond_to do |format|
 			format.html
 	    	format.json { render json: @conditions }

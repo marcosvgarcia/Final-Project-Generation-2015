@@ -27,4 +27,14 @@ class Condition
 			@sun = solarradiation
 		end
 	end
+
+	def water_production
+
+		h = @humidity.split('%')
+
+		k_humidity = ((5 * 10**-5 * (h[0].to_i**2)) + (0.013 * h[0].to_i) + 0.0277)
+		k_temperature = ((-0.0002 * (@celsius**2)) + (0.0458 * @celsius) - 0.1029)
+
+		water_litres = k_humidity * k_temperature * 100
+	end
 end
