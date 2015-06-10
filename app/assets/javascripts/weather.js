@@ -45,7 +45,20 @@ $(document).ready(function() {
 						   "</li><li>HUMIDITY: " + current.humidity + 
 						   "</li><li>WIND: " + current.wind + 
 						   "</li><li>RADIATION: " + current.sun + "</li>" +
-						   "</li><li>WATER PRODUCTION: " + current.water_production + "</li>");
+						   "</li><li>WATER PRODUCTION: " + water_production(current) + "</li>");
+		}
+
+		function water_production(current) {
+
+			var h = parseFloat(current.humidity);
+
+			var k_humidity = (5 * Math.pow(10, -5) * Math.pow(h, 2)) + (0.013 * h) + 0.0277;
+
+			var k_temperature = (-0.0002 * Math.pow(current.celsius, 2)) + (0.0458 * current.celsius) - 0.1029;
+
+			var water_litres = k_humidity * k_temperature * 100;
+
+			return water_litres;
 		}
 
 	});
