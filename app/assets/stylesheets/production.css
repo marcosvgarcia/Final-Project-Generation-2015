@@ -6,7 +6,7 @@ li {
 	margin: 3rem;
 }
 
-.weather {
+.monthly-weather {
 	margin-top: 3rem;
 }
 
@@ -33,8 +33,7 @@ li {
 	border-color: #4d90fe;
 }
 
-#current_conditions {
+#monthly-conditions {
 	margin-top: 3rem;
 	margin-left: 15rem;
 }
-

@@ -1,0 +1,15 @@
+<h1 style="text-align: center"> TechnoWeather </h1>
+
+<h3 style="text-align: center"> Check Monthly Water Production </h3>
+
+<div class="col-lg-12 monthly-weather">
+	<ul class="col-lg-4" id="monthly-conditions">
+		<li>MONTHLY AVERAGE TEMPERATURE (ºC): <%= @conditions.monthly_temp %></li>
+		<li>MONTHLY AVERAGE HUMIDITY: <%= @conditions.monthly_humidity %></li>
+		<li><h3>WATER PRODUCTION: <%= (@conditions.monthly_water_production) %> L</h3></li>
+	</ul>
+	<div class="col-lg-6">
+		<input id="pac-input" class="controls" type="text">
+		<div id="location"></div>
+	</div>
+</div>
