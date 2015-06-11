@@ -1,13 +1,13 @@
+<h1> TechnoWeather </h1>
 
-<%= form_for @conditions do |f| %>
+<h3> Check Monthly Water Production </h3>
 
-	<% f.label :country %>
-	<%= f.text_field :country %>
-	<br>
-	<%= f.label :city %>
-	<%= f.text_field :city %>
-	</br>
+<div id="location"></div>
 
-	<%= f.submit 'SEARCH' %>
-<% end %>
+<ul class="col-lg-4" id="monthly-conditions">
+	<li>MONTHLY AVERAGE TEMPERATURE (ºC): <%= @conditions.monthly_temp %></li>
+	<li>MONTHLY AVERAGE HUMIDITY: <%= @conditions.monthly_humidity %></li>
+	<li>WATER PRODUCTION: <%= (@conditions.monthly_water_production) %> L</li>
+</ul>
 
+<input id="pac-input" class="controls" type="text">

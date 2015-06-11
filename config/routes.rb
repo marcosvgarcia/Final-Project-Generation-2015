@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  	get '/weather', to: 'weather#index'
+  	get '/weather' => 'weather#index'
 
-  	get '/production', to: 'production#index'
+  	get '/production' => 'weather#show'
 end

@@ -1,18 +1,19 @@
-<h1 style="text-align: center"> TechnoWeather </h1>
+<h1> TechnoWeather </h1>
 
-<h3 style="text-align: center"> Check the Current Weather Conditions and Daily Water Production </h3>
+<h3> Check the Current Weather Conditions and Daily Water Production </h3>
 
-<div class="col-lg-12 weather">
-	<ul class="col-lg-4" id="current_conditions">
-		<li>LOCATION: <%= @conditions.country %>, <%= @conditions.city %></li>
-		<li>TEMPERATURE (ºF): <%= @conditions.fahrenheit %></li>
-		<li>TEMPERATURE (ºC): <%= @conditions.celsius %></li>
-		<li>HUMIDITY: <%= @conditions.humidity %></li>
-		<li>WIND: <%= @conditions.wind %></li>
-		<li>WATER PRODUCTION: <%= @conditions.water_production %> L</li>
-	</ul>
-	<div class="col-lg-6">
-		<input id="pac-input" class="controls" type="text">
-		<div id="location"></div>
-	</div>
-</div>
+<div id="location"></div>
+
+<ul class="col-lg-4" id="current_conditions">
+	<li>LOCATION: <%= @conditions.country %>, <%= @conditions.city %></li>
+	<li>TEMPERATURE (ºF): <%= @conditions.fahrenheit %></li>
+	<li>TEMPERATURE (ºC): <%= @conditions.celsius %></li>
+	<li>HUMIDITY: <%= @conditions.humidity %></li>
+	<li>WIND: <%= @conditions.wind %></li>
+	<li>WATER PRODUCTION: <%= @conditions.water_production %> L</li>
+</ul>
+
+<input id="pac-input" class="controls" type="text">
+	
+	
+
