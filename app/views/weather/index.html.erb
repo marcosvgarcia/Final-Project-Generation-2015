@@ -2,9 +2,9 @@
 
 <h3> Check the Current Weather Conditions and Daily Water Production </h3>
 
-<div id="location"></div>
+<div id="location" name="index"></div>
 
-<ul class="col-lg-4" id="current_conditions">
+<ul id="current_conditions">
 	<li>LOCATION: <%= @conditions.country %>, <%= @conditions.city %></li>
 	<li>TEMPERATURE (ºF): <%= @conditions.fahrenheit %></li>
 	<li>TEMPERATURE (ºC): <%= @conditions.celsius %></li>
@@ -13,7 +13,6 @@
 	<li>WATER PRODUCTION: <%= @conditions.water_production %> L</li>
 </ul>
 
-<input id="pac-input" class="controls" type="text">
-	
-	
+<input id="pac-input" name="InputIndex" class="controls" type="text">
+
 

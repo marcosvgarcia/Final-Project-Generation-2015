@@ -1,7 +1,7 @@
 require 'open-uri'
 
 class Condition 
-	attr_accessor :country, :city, :humidity, :fahrenheit, :celsius, :wind, :sun, :mintemp, :maxtemp, :avehumidity, :monthly_temp, :monthly_humidity
+	attr_accessor :country, :city, :humidity, :fahrenheit, :celsius, :wind, :sun, :zone, :mintemp, :maxtemp, :avehumidity, :monthly_temp, :monthly_humidity
 
 	def current_conditions(coordinates)
 
@@ -47,33 +47,37 @@ class Condition
     	@maxtemp = []
     	@avehumidity = []
 
-  		for day in 1..9
+  		for day in 1..2
 
 			open('http://api.wunderground.com/api/10e35db57db73b9a/history_2015050'"#{day}"'/q/'+ lat +','+ lng +'.json') do |f|
 				json_string = f.read
 				parsed_json = JSON.parse(json_string)
+				tzname = parsed_json['history']['dailysummary'][0]['date']['tzname']
 				mintempm = parsed_json['history']['dailysummary'][0]['mintempm']
 				maxtempm = parsed_json['history']['dailysummary'][0]['maxtempm']
 				humidity = parsed_json['history']['dailysummary'][0]['humidity']
+				@zone = tzname
 				@mintemp << mintempm
 				@maxtemp << maxtempm
 				@avehumidity << humidity
 			end
 		end
 
-		for day in 10..30
+		# for day in 10..30
 
-			open('http://api.wunderground.com/api/10e35db57db73b9a/history_201505'"#{day}"'/q/'+ lat +','+ lng +'.json') do |f|
-				json_string = f.read
-				parsed_json = JSON.parse(json_string)
-				mintempm = parsed_json['history']['dailysummary'][0]['mintempm']
-				maxtempm = parsed_json['history']['dailysummary'][0]['maxtempm']
-				humidity = parsed_json['history']['dailysummary'][0]['humidity']
-				@mintemp << mintempm
-				@maxtemp << maxtempm
-				@avehumidity << humidity
-			end
-		end
+		# 	open('http://api.wunderground.com/api/10e35db57db73b9a/history_201505'"#{day}"'/q/'+ lat +','+ lng +'.json') do |f|
+		# 		json_string = f.read
+		# 		parsed_json = JSON.parse(json_string)
+		#       tzname = parsed_json['history']['dailysummary'][0]['date']['tzname']
+		# 		mintempm = parsed_json['history']['dailysummary'][0]['mintempm']
+		# 		maxtempm = parsed_json['history']['dailysummary'][0]['maxtempm']
+		# 		humidity = parsed_json['history']['dailysummary'][0]['humidity']
+		# 		@zone = tzname
+		#       @mintemp << mintempm
+		# 		@maxtemp << maxtempm
+		# 		@avehumidity << humidity
+		# 	end
+		# end
 	end
 
 	def monthly_temperature
@@ -92,7 +96,7 @@ class Condition
   			maximum += n
 		end
 
-		@monthly_temp = ((minimum + maximum)/60)
+		@monthly_temp = ((minimum + maximum)/4)
 	end
 
 	def monthly_humidity
@@ -105,7 +109,7 @@ class Condition
   			average += number
 		end
 
-		@monthly_humidity = (average/30)
+		@monthly_humidity = (average/2)
 	end
 
 	def monthly_water_production
@@ -117,6 +121,4 @@ class Condition
 
 		water_litres.round
 	end
-
-
 end

@@ -25,12 +25,20 @@ li {
 	font-family: Roboto;
 	font-size: 2rem;
 	font-weight: 300;
-	margin-top: 20rem;
 	margin-left: 90.5rem;
 	padding-left: 7rem;
 	border-radius: 2rem; 
 	text-overflow: ellipsis;
-	width: 46rem;
+}
+
+input[name="InputIndex"] {
+	margin-top: 20rem;
+	width: 45.5rem;
+}
+
+input[name="InputShow"] {
+	margin-top: 23rem;
+	width: 45.5rem;
 }
 
 #pac-input:focus {
@@ -41,26 +49,28 @@ li {
 	border-radius: 2rem;
 	position: relative;
 	background-color: #fff;
-	margin-top: 24.2rem;
+	margin-top: 25rem;
 	margin-left: 90.5rem;
 	padding: 4rem;
 	padding-left: 7rem;
 	font-family: Courier New;
 	font-size: 2rem;
 	color: #730B4F;
+	width: 45.5rem;
 }
 
 #monthly-conditions {
 	border-radius: 2rem;
 	position: relative;
 	background-color: #fff;
-	margin-top: 24.2rem;
+	margin-top: 28rem;
 	margin-left: 90.5rem;
 	padding: 4rem;
 	padding-left: 7rem;
 	font-family: Courier New;
 	font-size: 2rem;
 	color: #730B4F;
+	width: 45.5rem;
 }
 
 

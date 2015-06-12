@@ -2,12 +2,13 @@
 
 <h3> Check Monthly Water Production </h3>
 
-<div id="location"></div>
+<div id="location" name="show"></div>
 
-<ul class="col-lg-4" id="monthly-conditions">
+<ul id="monthly-conditions">
+	<li>LOCATION: <%= @conditions.zone %></li>
 	<li>MONTHLY AVERAGE TEMPERATURE (ºC): <%= @conditions.monthly_temp %></li>
 	<li>MONTHLY AVERAGE HUMIDITY: <%= @conditions.monthly_humidity %></li>
 	<li>WATER PRODUCTION: <%= (@conditions.monthly_water_production) %> L</li>
 </ul>
 
-<input id="pac-input" class="controls" type="text">
+<input id="pac-input" name="InputShow" class="controls" type="text">
