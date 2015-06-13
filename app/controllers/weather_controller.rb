@@ -32,32 +32,33 @@ class WeatherController < ApplicationController
 
 		@conditions = Condition.new	
 
-    	if params[:latitude] && params[:longitude]
+    	if params[:coordinates] && params[:date]
+
+    		c = params[:coordinates]
     		coordinates = {
-				'latitude' => params[:latitude],
-				'longitude' => params[:longitude]
+				'latitude' => c[:latitude],
+				'longitude' => c[:longitude]
+			}
+
+			d = params[:date]
+			date = {
+				'month' => d[:month],
+				'year' => d[:year]
 			}
     	else
       		coordinates = {
 				'latitude' => 40.4378271,
          		'longitude'=> -3.6795366
       		}
-		end
 
-		if params[:month] && params[:year]
-			date = {
-				'month' => params[:month],
-				'year' => params[:year]
-			}
-		else
-			date = {
+      		date = {
 				'month' => (Date.today.month - 1),
 				'year' => Date.today.year
 			}
 		end
 
 		@conditions.monthly_conditions(coordinates, date)
-
+		
 		@conditions.monthly_temperature
 
 		@conditions.monthly_humidity

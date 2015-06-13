@@ -46,7 +46,7 @@ class Condition
 
     	@YYYY = date['year'].to_s
     	
-    	if date['month'] < 10
+    	if date['month'].to_i < 10
     		@MM = '0'+ date['month'].to_s
     	else
     		@MM = date['month'].to_s

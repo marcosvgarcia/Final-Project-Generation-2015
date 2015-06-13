@@ -48,9 +48,9 @@ $(document).ready(function() {
 	    }
 
 		if ($("#location").attr("name") === "index")
-			IndexDblClickWeather(coordinates);
+			IndexWeather(coordinates);
 		else
-			ShowDblClickWeather(coordinates, date), console.log(coordinates, date);
+			ShowWeather(coordinates, date);
 	});
 	
 	google.maps.event.addListener(searchBox, 'places_changed', function() {
@@ -87,14 +87,14 @@ $(document).ready(function() {
 	    }
 
     	if ($("#location").attr("name") === "index")
-			IndexSearchBoxWeather(coordinates);
+			IndexWeather(coordinates);
 		else
-			ShowSearchBoxWeather(coordinates, date), console.log(coordinates, date);
+			ShowWeather(coordinates, date);
     });
 
 	//for index path
 
-	function IndexDblClickWeather(coordinates) {
+	function IndexWeather(coordinates) {
 		$.ajax({
 			url: "http://localhost:3000/weather",
 			data: coordinates,
@@ -104,26 +104,14 @@ $(document).ready(function() {
 		});
 	}
 
-	function IndexSearchBoxWeather(coordinates) {
-    	$.ajax({
-			url: "http://localhost:3000/weather",
-			data: coordinates,
-			success: function(response){console.log("OK"); current_ul(response) },
-			error: function(){console.log("WRONG")},
-			dataType: "json"
-		});
-	}
-
 	function current_ul(current) {
-
-		$("ul").empty();
 		
-		$("ul").append("<li>LOCATION: " + current.country + ", " + current.city + 
-					   "</li><li>TEMPERATURE (ºF): " + current.fahrenheit + 
-					   "</li><li>TEMPERATURE (ºC): " + current.celsius + 
-					   "</li><li>HUMIDITY: " + current.humidity + 
-					   "</li><li>WIND: " + current.wind + 
-					   "</li><li>WATER PRODUCTION: " + current_water_production(current) + "</li>");
+		$("#zone").empty().append("LOCATION: " + current.country + ", " + current.city);
+		$("#fahrenheit").empty().append("TEMPERATURE (ºF): " + current.fahrenheit);
+		$("#celsius").empty().append("TEMPERATURE (ºC): " + current.celsius);
+		$("#humidity").empty().append("HUMIDITY: " + current.humidity);
+		$("#wind").empty().append("WIND: " + current.wind); 
+		$("#water").empty().append("WATER PRODUCTION: " + current_water_production(current) +" L");
 	}
 
 	function current_water_production(current) {
@@ -141,36 +129,24 @@ $(document).ready(function() {
 
 	//for show path
 
-	function ShowDblClickWeather(coordinates, date) {
+	function ShowWeather(coordinates, date) {
 
     	$.ajax({
 			url: "http://localhost:3000/production",
 			data: {coordinates: coordinates, date: date},
-			success: function(response){console.log("OK"); monthly_ul(response) },
+			success: function(response){console.log("OK"); monthly_ul(response)},
 			error: function(){console.log("WRONG")},
 			dataType: "json"
 		});
 	}
 
-    function ShowSearchBoxWeather(coordinates, date) {
-
-    	$.ajax({
-			url: "http://localhost:3000/production",
-			data: {coordinates: coordinates, date: date},
-			success: function(response){console.log("OK"); monthly_ul(response) },
-			error: function(){console.log("WRONG")},
-			dataType: "json"
-		});
-    }
-
 	function monthly_ul(history) {
-
-		$("ul").empty();
 		
-		$("ul").append("<li>LOCATION: " + history.zone + ",<br>" + history.MM +"/"+ history.YYYY +
-					   "</li><li>MONTHLY AVERAGE TEMPERATURE (ºC): " + history.monthly_temp + 
-					   "</li><li>MONTHLY AVERAGE HUMIDITY (%): " + history.monthly_humidity + 
-					   "</li><li>WATER PRODUCTION: " + (monthly_water_production(history)) + " L</li>");
+		$("#zone").empty().append("LOCATION: " + history.zone);
+		$("#celsius").empty().append("MONTHLY AVERAGE TEMPERATURE (ºC): " + history.monthly_temp);
+		$("#humidity").empty().append("MONTHLY AVERAGE HUMIDITY (%): " + history.monthly_humidity);
+		$("#water").empty().append("WATER PRODUCTION: " + (monthly_water_production(history)) + " L");
+		$("#date").empty().append(history.MM +"/"+ history.YYYY);
 	}
 
 	function monthly_water_production(history) {

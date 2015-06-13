@@ -29,7 +29,7 @@ ul {
 }
 
 li {
-	margin: 1rem;
+	margin: 0.75rem;
 	padding-left: 4rem;
 	background-size: 2.5rem 2.5rem;
 	background-repeat: no-repeat;
@@ -61,6 +61,10 @@ li {
 	background-image: url("https://cdn0.iconfinder.com/data/icons/thin-environment-ecology/24/thin-0741_water_pipe_drink-128.png");
 }
 
+#date {
+	text-align: right;
+}
+
 #location {
 	width: 100%;
 	height: 64rem;
@@ -85,7 +89,7 @@ input[name="InputIndex"] {
 }
 
 input[name="InputShow"] {
-	margin-top: 27rem;
+	margin-top: 27.25rem;
 }
 
 #pac-input:focus {
@@ -97,7 +101,7 @@ input[name="InputShow"] {
 }
 
 #monthly-conditions {
-	margin-top: 29rem;
+	margin-top: 29.5rem;
 }
 
 .btn {
@@ -112,7 +116,7 @@ input[name="InputShow"] {
 
 .input-group {
 	position: fixed;
-	top: 22rem;
+	top: 22.5rem;
 	font-family: Courier New;
 	font-size: 2rem;
 	border-radius: 2rem; 
