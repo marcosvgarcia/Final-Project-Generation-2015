@@ -4,11 +4,22 @@
 
 <div id="location" name="show"></div>
 
+<button><%= link_to(image_tag("https://cdn1.iconfinder.com/data/icons/utility/100/SVG_Utility-33-128.png", :class => "btn"), weather_path) %></button>
+
 <ul id="monthly-conditions">
-	<li>LOCATION: <%= @conditions.zone %></li>
-	<li>MONTHLY AVERAGE TEMPERATURE (ºC): <%= @conditions.monthly_temp %></li>
-	<li>MONTHLY AVERAGE HUMIDITY: <%= @conditions.monthly_humidity %></li>
-	<li>WATER PRODUCTION: <%= (@conditions.monthly_water_production) %> L</li>
+	<li id="zone">LOCATION: <%= @conditions.zone %></li>
+	<li id="celsius">MONTHLY AVERAGE TEMPERATURE (ºC): <%= @conditions.monthly_temp %></li>
+	<li id="humidity">MONTHLY AVERAGE HUMIDITY (%): <%= @conditions.monthly_humidity %></li>
+	<li id="water">WATER PRODUCTION: <%= (@conditions.monthly_water_production) %> L</li>
 </ul>
 
 <input id="pac-input" name="InputShow" class="controls" type="text">
+
+<div class="input-group month">
+	<div class="input-group-addon">Month</div>
+	<%= select_month(Date.today, options = {:use_two_digit_numbers => true}, html_options = {:class => "form-control", :id => "month"}) %>
+</div>
+<div class="input-group year">
+	<div class="input-group-addon middle">Year</div>
+	<%= select_year(Date.today, {:start_year => Time.now.year, :end_year => Time.now.year - 25}, {:class => "form-control", :id => "year"}) %>
+</div>

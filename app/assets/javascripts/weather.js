@@ -33,6 +33,7 @@ $(document).ready(function() {
 
 
 	google.maps.event.addListener(map, "dblclick", function(event) {
+
     	lat = event.latLng.lat();
     	lng = event.latLng.lng();
 
@@ -126,6 +127,7 @@ $(document).ready(function() {
 	//for show path
 
 	function ShowDblClickWeather(coordinates) {
+
     	$.ajax({
 			url: "http://localhost:3000/production",
 			data: coordinates,
@@ -135,7 +137,8 @@ $(document).ready(function() {
 		});
 	}
 
-    function ShowSearchBoxWeather(coordinates) {	
+    function ShowSearchBoxWeather(coordinates) {
+
     	$.ajax({
 			url: "http://localhost:3000/production",
 			data: coordinates,
@@ -151,7 +154,7 @@ $(document).ready(function() {
 		
 		$("ul").append("<li>LOCATION: " + history.zone +
 					   "</li><li>MONTHLY AVERAGE TEMPERATURE (ºC): " + history.monthly_temp + 
-					   "</li><li>MONTHLY AVERAGE HUMIDITY: " + history.monthly_humidity + 
+					   "</li><li>MONTHLY AVERAGE HUMIDITY (%): " + history.monthly_humidity + 
 					   "</li><li>WATER PRODUCTION: " + (monthly_water_production(history)) + " L</li>");
 	}
 

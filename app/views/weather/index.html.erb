@@ -4,13 +4,15 @@
 
 <div id="location" name="index"></div>
 
+<button><%= link_to(image_tag("https://cdn3.iconfinder.com/data/icons/bubbles/512/Calendar-128.png", :class => "btn"), production_path) %></button>
+
 <ul id="current_conditions">
-	<li>LOCATION: <%= @conditions.country %>, <%= @conditions.city %></li>
-	<li>TEMPERATURE (ºF): <%= @conditions.fahrenheit %></li>
-	<li>TEMPERATURE (ºC): <%= @conditions.celsius %></li>
-	<li>HUMIDITY: <%= @conditions.humidity %></li>
-	<li>WIND: <%= @conditions.wind %></li>
-	<li>WATER PRODUCTION: <%= @conditions.water_production %> L</li>
+	<li id="zone">LOCATION: <%= @conditions.country %>, <%= @conditions.city %></li>
+	<li id="fahrenheit">TEMPERATURE (ºF): <%= @conditions.fahrenheit %></li>
+	<li id="celsius">TEMPERATURE (ºC): <%= @conditions.celsius %></li>
+	<li id="humidity">HUMIDITY: <%= @conditions.humidity %></li>
+	<li id="wind">WIND: <%= @conditions.wind %></li>
+	<li id="water">WATER PRODUCTION: <%= @conditions.water_production %> L</li>
 </ul>
 
 <input id="pac-input" name="InputIndex" class="controls" type="text">

@@ -9,8 +9,50 @@ h1, h3 {
 	color: #730B4F;
 }
 
+ul {
+	border-radius: 2rem;
+	position: relative;
+	background-color: #fff;
+	margin-left: 91rem;
+	padding: 3rem;
+	font-family: Courier New;
+	font-size: 2rem;
+	color: #730B4F;
+	width: 45rem;
+    list-style-type: none;
+}
+
 li {
-	margin-left: 2rem;
+	margin: 1rem;
+	padding-left: 4rem;
+	background-size: 2.5rem 2.5rem;
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+
+#zone {
+	background-image: url("https://cdn2.iconfinder.com/data/icons/vector-icon-bundle-1-1/1417/location-128.png");
+}
+
+#fahrenheit {
+	background-image: url("https://cdn1.iconfinder.com/data/icons/weather-20/24/Fahrenheit-128.png");
+}
+
+#celsius {
+	background-image: url("https://cdn1.iconfinder.com/data/icons/weather-20/24/Celsius-128.png");
+}
+
+#humidity {
+	background-image: url("https://cdn4.iconfinder.com/data/icons/weather-25/128/Humidity-128x128-2.png");
+}
+
+#wind {
+	background-image: url("https://cdn0.iconfinder.com/data/icons/good-weather-1/96/weather_icons-66-128.png");
+	background-size: 3rem 4rem;
+}
+
+#water {
+	background-image: url("https://cdn0.iconfinder.com/data/icons/thin-environment-ecology/24/thin-0741_water_pipe_drink-128.png");
 }
 
 #location {
@@ -25,20 +67,19 @@ li {
 	font-family: Roboto;
 	font-size: 2rem;
 	font-weight: 300;
-	margin-left: 90.5rem;
+	margin-left: 91rem;
 	padding-left: 7rem;
 	border-radius: 2rem; 
 	text-overflow: ellipsis;
+	width: 45rem;
 }
 
 input[name="InputIndex"] {
-	margin-top: 20rem;
-	width: 45.5rem;
+	margin-top: 15rem;
 }
 
 input[name="InputShow"] {
-	margin-top: 23rem;
-	width: 45.5rem;
+	margin-top: 19rem;
 }
 
 #pac-input:focus {
@@ -46,32 +87,50 @@ input[name="InputShow"] {
 }
 
 #current_conditions {
-	border-radius: 2rem;
-	position: relative;
-	background-color: #fff;
-	margin-top: 25rem;
-	margin-left: 90.5rem;
-	padding: 4rem;
-	padding-left: 7rem;
-	font-family: Courier New;
-	font-size: 2rem;
-	color: #730B4F;
-	width: 45.5rem;
+	margin-top: 17rem;
 }
 
 #monthly-conditions {
-	border-radius: 2rem;
-	position: relative;
-	background-color: #fff;
-	margin-top: 28rem;
-	margin-left: 90.5rem;
-	padding: 4rem;
-	padding-left: 7rem;
-	font-family: Courier New;
-	font-size: 2rem;
-	color: #730B4F;
-	width: 45.5rem;
+	margin-top: 21rem;
 }
 
+.btn {
+	position: fixed;
+	bottom: 3rem;
+	height: 7rem;
+	width: 8.25rem;
+	border-radius: 50%;
+	text-decoration: none;
+}
 
+.input-group {
+	position: fixed;
+	top: 26rem;
+	font-family: Courier New;
+	font-size: 2rem;
+	border-radius: 2rem; 
+	width: 21.5rem;
+	height: 4rem;
+}
 
+.input-group-addon {
+	border-radius: 2rem; 
+	background-color: #fff;
+}
+
+.form-control {
+	width: 15rem;
+	height: 4rem;
+	border-top-right-radius: 2rem;
+	border-bottom-right-radius: 2rem;
+	font-size: 3rem;
+	background-color: #fff;
+}
+
+.month {
+	right: 24rem;
+}
+
+.year {
+	right: 0.5rem;
+}

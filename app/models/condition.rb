@@ -1,7 +1,8 @@
 require 'open-uri'
 
 class Condition 
-	attr_accessor :country, :city, :humidity, :fahrenheit, :celsius, :wind, :sun, :zone, :mintemp, :maxtemp, :avehumidity, :monthly_temp, :monthly_humidity
+	attr_accessor :country, :city, :humidity, :fahrenheit, :celsius, :wind, :sun,
+				  :YYYY, :MM, :zone, :mintemp, :maxtemp, :avehumidity, :monthly_temp, :monthly_humidity
 
 	def current_conditions(coordinates)
 
@@ -43,13 +44,23 @@ class Condition
     	lat = coordinates['latitude'].to_s
     	lng = coordinates['longitude'].to_s
 
+    	@YYYY = Date.today.year.to_s
+
+    	@MM = ''
+    	
+    	if Date.today.month < 10
+    		@MM = '0'+ (Date.today.month - 1).to_s
+    	else
+    		@MM = (Date.today.month - 1).to_s
+    	end
+
     	@mintemp = []
     	@maxtemp = []
     	@avehumidity = []
 
   		for day in 1..2
 
-			open('http://api.wunderground.com/api/10e35db57db73b9a/history_2015050'"#{day}"'/q/'+ lat +','+ lng +'.json') do |f|
+			open('http://api.wunderground.com/api/10e35db57db73b9a/history_'+@YYYY+@MM+'0'"#{day}"'/q/'+ lat +','+ lng +'.json') do |f|
 				json_string = f.read
 				parsed_json = JSON.parse(json_string)
 				tzname = parsed_json['history']['dailysummary'][0]['date']['tzname']
@@ -65,7 +76,7 @@ class Condition
 
 		# for day in 10..30
 
-		# 	open('http://api.wunderground.com/api/10e35db57db73b9a/history_201505'"#{day}"'/q/'+ lat +','+ lng +'.json') do |f|
+		# 	open('http://api.wunderground.com/api/10e35db57db73b9a/history_'+YYYY+MM'"#{day}"'/q/'+ lat +','+ lng +'.json') do |f|
 		# 		json_string = f.read
 		# 		parsed_json = JSON.parse(json_string)
 		#       tzname = parsed_json['history']['dailysummary'][0]['date']['tzname']
