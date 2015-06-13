@@ -1,8 +1,8 @@
 require 'open-uri'
 
 class Condition 
-	attr_accessor :country, :city, :humidity, :fahrenheit, :celsius, :wind, :sun,
-				  :YYYY, :MM, :zone, :mintemp, :maxtemp, :avehumidity, :monthly_temp, :monthly_humidity
+	attr_accessor :country, :city, :humidity, :fahrenheit, :celsius, :wind, :sun, :YYYY, :MM,
+				  :zone, :mintemp, :maxtemp, :avehumidity, :monthly_temp, :monthly_humidity
 
 	def current_conditions(coordinates)
 
@@ -39,19 +39,17 @@ class Condition
 		water_litres.round
 	end
 
-	def monthly_conditions(coordinates)
+	def monthly_conditions(coordinates, date)
 
     	lat = coordinates['latitude'].to_s
     	lng = coordinates['longitude'].to_s
 
-    	@YYYY = Date.today.year.to_s
-
-    	@MM = ''
+    	@YYYY = date['year'].to_s
     	
-    	if Date.today.month < 10
-    		@MM = '0'+ (Date.today.month - 1).to_s
+    	if date['month'] < 10
+    		@MM = '0'+ date['month'].to_s
     	else
-    		@MM = (Date.today.month - 1).to_s
+    		@MM = date['month'].to_s
     	end
 
     	@mintemp = []
@@ -64,10 +62,14 @@ class Condition
 				json_string = f.read
 				parsed_json = JSON.parse(json_string)
 				tzname = parsed_json['history']['dailysummary'][0]['date']['tzname']
+				year = parsed_json['history']['dailysummary'][0]['date']['year']
+				mon = parsed_json['history']['dailysummary'][0]['date']['mon']
 				mintempm = parsed_json['history']['dailysummary'][0]['mintempm']
 				maxtempm = parsed_json['history']['dailysummary'][0]['maxtempm']
 				humidity = parsed_json['history']['dailysummary'][0]['humidity']
 				@zone = tzname
+				@YYYY = year
+				@MM = mon
 				@mintemp << mintempm
 				@maxtemp << maxtempm
 				@avehumidity << humidity
@@ -76,14 +78,18 @@ class Condition
 
 		# for day in 10..30
 
-		# 	open('http://api.wunderground.com/api/10e35db57db73b9a/history_'+YYYY+MM'"#{day}"'/q/'+ lat +','+ lng +'.json') do |f|
+		# 	open('http://api.wunderground.com/api/10e35db57db73b9a/history_'+@YYYY+@MM'"#{day}"'/q/'+ lat +','+ lng +'.json') do |f|
 		# 		json_string = f.read
 		# 		parsed_json = JSON.parse(json_string)
 		#       tzname = parsed_json['history']['dailysummary'][0]['date']['tzname']
+		#       year = parsed_json['history']['dailysummary'][0]['date']['year']
+		#		mon = parsed_json['history']['dailysummary'][0]['date']['mon']
 		# 		mintempm = parsed_json['history']['dailysummary'][0]['mintempm']
 		# 		maxtempm = parsed_json['history']['dailysummary'][0]['maxtempm']
 		# 		humidity = parsed_json['history']['dailysummary'][0]['humidity']
 		# 		@zone = tzname
+		#       @YYYY = year
+		#		@MM = mon
 		#       @mintemp << mintempm
 		# 		@maxtemp << maxtempm
 		# 		@avehumidity << humidity

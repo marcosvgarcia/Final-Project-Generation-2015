@@ -39,10 +39,18 @@ $(document).ready(function() {
 
     	coordinates = {latitude: lat, longitude: lng };
 
+    	if ($("#location").attr("name") === "show") {
+    		
+	    	MM = $("#month").val();
+	    	YYYY = $("#year").val();
+
+	    	date = { month: MM, year: YYYY };
+	    }
+
 		if ($("#location").attr("name") === "index")
 			IndexDblClickWeather(coordinates);
 		else
-			ShowDblClickWeather(coordinates);
+			ShowDblClickWeather(coordinates, date), console.log(coordinates, date);
 	});
 	
 	google.maps.event.addListener(searchBox, 'places_changed', function() {
@@ -70,10 +78,18 @@ $(document).ready(function() {
 
     	coordinates = {latitude: lat, longitude: lng };
 
+    	if ($("#location").attr("name") === "show") {
+
+	    	MM = $("#month").val()
+	    	YYYY = $("#year").val()
+
+	    	date = { month: MM, year: YYYY }
+	    }
+
     	if ($("#location").attr("name") === "index")
 			IndexSearchBoxWeather(coordinates);
 		else
-			ShowSearchBoxWeather(coordinates);
+			ShowSearchBoxWeather(coordinates, date), console.log(coordinates, date);
     });
 
 	//for index path
@@ -85,7 +101,6 @@ $(document).ready(function() {
 			success: function(response){console.log("OK"); current_ul(response) },
 			error: function(){console.log("WRONG")},
 			dataType: "json"
-
 		});
 	}
 
@@ -108,7 +123,7 @@ $(document).ready(function() {
 					   "</li><li>TEMPERATURE (ºC): " + current.celsius + 
 					   "</li><li>HUMIDITY: " + current.humidity + 
 					   "</li><li>WIND: " + current.wind + 
-					   "</li><li>WATER PRODUCTION: " + current_water_production(current) + " L</li>");
+					   "</li><li>WATER PRODUCTION: " + current_water_production(current) + "</li>");
 	}
 
 	function current_water_production(current) {
@@ -126,22 +141,22 @@ $(document).ready(function() {
 
 	//for show path
 
-	function ShowDblClickWeather(coordinates) {
+	function ShowDblClickWeather(coordinates, date) {
 
     	$.ajax({
 			url: "http://localhost:3000/production",
-			data: coordinates,
+			data: {coordinates: coordinates, date: date},
 			success: function(response){console.log("OK"); monthly_ul(response) },
 			error: function(){console.log("WRONG")},
 			dataType: "json"
 		});
 	}
 
-    function ShowSearchBoxWeather(coordinates) {
+    function ShowSearchBoxWeather(coordinates, date) {
 
     	$.ajax({
 			url: "http://localhost:3000/production",
-			data: coordinates,
+			data: {coordinates: coordinates, date: date},
 			success: function(response){console.log("OK"); monthly_ul(response) },
 			error: function(){console.log("WRONG")},
 			dataType: "json"
@@ -152,7 +167,7 @@ $(document).ready(function() {
 
 		$("ul").empty();
 		
-		$("ul").append("<li>LOCATION: " + history.zone +
+		$("ul").append("<li>LOCATION: " + history.zone + ",<br>" + history.MM +"/"+ history.YYYY +
 					   "</li><li>MONTHLY AVERAGE TEMPERATURE (ºC): " + history.monthly_temp + 
 					   "</li><li>MONTHLY AVERAGE HUMIDITY (%): " + history.monthly_humidity + 
 					   "</li><li>WATER PRODUCTION: " + (monthly_water_production(history)) + " L</li>");

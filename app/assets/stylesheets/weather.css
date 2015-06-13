@@ -3,10 +3,17 @@
   They will automatically be included in application.css.
 */
 
-h1, h3 {
-	text-align: center;
-	font-family: Courier New;
-	color: #730B4F;
+header{
+	position: fixed;
+	z-index: 1;
+	width: 55;
+}
+
+img {
+	display: block;
+	margin: auto;
+	width: 50rem;
+	height: 15rem;
 }
 
 ul {
@@ -17,7 +24,6 @@ ul {
 	padding: 3rem;
 	font-family: Courier New;
 	font-size: 2rem;
-	color: #730B4F;
 	width: 45rem;
     list-style-type: none;
 }
@@ -57,7 +63,7 @@ li {
 
 #location {
 	width: 100%;
-	height: 52rem;
+	height: 64rem;
 	position: absolute;
 }
 
@@ -75,11 +81,11 @@ li {
 }
 
 input[name="InputIndex"] {
-	margin-top: 15rem;
+	margin-top: 25rem;
 }
 
 input[name="InputShow"] {
-	margin-top: 19rem;
+	margin-top: 27rem;
 }
 
 #pac-input:focus {
@@ -87,15 +93,16 @@ input[name="InputShow"] {
 }
 
 #current_conditions {
-	margin-top: 17rem;
+	margin-top: 27rem;
 }
 
 #monthly-conditions {
-	margin-top: 21rem;
+	margin-top: 29rem;
 }
 
 .btn {
 	position: fixed;
+	left: 1rem;
 	bottom: 3rem;
 	height: 7rem;
 	width: 8.25rem;
@@ -105,7 +112,7 @@ input[name="InputShow"] {
 
 .input-group {
 	position: fixed;
-	top: 26rem;
+	top: 22rem;
 	font-family: Courier New;
 	font-size: 2rem;
 	border-radius: 2rem; 
@@ -123,7 +130,7 @@ input[name="InputShow"] {
 	height: 4rem;
 	border-top-right-radius: 2rem;
 	border-bottom-right-radius: 2rem;
-	font-size: 3rem;
+	font-size: 2.5rem;
 	background-color: #fff;
 }
 
