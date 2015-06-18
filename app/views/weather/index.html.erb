@@ -1,6 +1,7 @@
 <div id="location" name="index"></div>
 
-<button><%= link_to(image_tag('M.png', :class => "btn"), show_path) %></button>
+<button><%= link_to(image_tag('D.png', :class => "btnday"), index_path) %></button>
+<button><%= link_to(image_tag('M.png', :class => "btnmonth"), show_path) %></button>
 
 <ul id="current_conditions">
 	<li id="zone">LOCATION: <%= @conditions.country %>, <%= @conditions.city %></li>

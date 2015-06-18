@@ -111,7 +111,27 @@ input[name="InputShow"] {
 	margin-top: 27.5rem;
 }
 
-.btn {
+.btnday {
+	position: fixed;
+	left: 0.5rem;
+	bottom: 14rem;
+	height: 8rem;
+	width: 8rem;
+	border-radius: 50%;
+	text-decoration: none;
+	background-color: #FF6E19;
+	z-index: 1;
+	
+	-webkit-transition: all 0.1s;
+	-moz-transition: all 0.1s;
+	transition: all 0.1s;
+	
+	-webkit-box-shadow: 0rem 1rem 0rem #DD492C;
+    -moz-box-shadow: 0rem 1rem 0rem #DD492C;
+    box-shadow: 0rem 1rem 0rem #DD492C;
+}
+
+.btnmonth {
 	position: fixed;
 	left: 0.5rem;
 	bottom: 4rem;
@@ -130,8 +150,6 @@ input[name="InputShow"] {
     -moz-box-shadow: 0rem 1rem 0rem #DD492C;
     box-shadow: 0rem 1rem 0rem #DD492C;
 }
-
-
 
 .input-group {
 	position: fixed;
