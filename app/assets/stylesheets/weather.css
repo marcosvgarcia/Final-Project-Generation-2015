@@ -3,17 +3,22 @@
   They will automatically be included in application.css.
 */
 
-header{
+
+#TechnoWeather {
 	position: fixed;
 	z-index: 1;
-	width: 55;
-}
-
-img {
-	display: block;
-	margin: auto;
+	left: -1rem;
 	width: 50rem;
 	height: 15rem;
+}
+
+#WU {
+	position: fixed;
+	z-index: 1;
+	top: 2rem;
+	right: 1rem;
+	width: 12rem;
+	height: 7rem;
 }
 
 ul {
@@ -26,6 +31,7 @@ ul {
 	font-size: 2rem;
 	width: 45rem;
     list-style-type: none;
+    z-index: 0;
 }
 
 li {
@@ -69,6 +75,7 @@ li {
 	width: 100%;
 	height: 64rem;
 	position: absolute;
+	z-index: 0;
 }
 
 #pac-input {
@@ -85,11 +92,11 @@ li {
 }
 
 input[name="InputIndex"] {
-	margin-top: 25rem;
+	margin-top: 25.5rem;
 }
 
 input[name="InputShow"] {
-	margin-top: 27.25rem;
+	margin-top: 25.5rem;
 }
 
 #pac-input:focus {
@@ -97,26 +104,38 @@ input[name="InputShow"] {
 }
 
 #current_conditions {
-	margin-top: 27rem;
+	margin-top: 27.5rem;
 }
 
 #monthly-conditions {
-	margin-top: 29.5rem;
+	margin-top: 27.5rem;
 }
 
 .btn {
 	position: fixed;
-	left: 1rem;
-	bottom: 3rem;
-	height: 7rem;
-	width: 8.25rem;
+	left: 0.5rem;
+	bottom: 4rem;
+	height: 8rem;
+	width: 8rem;
 	border-radius: 50%;
 	text-decoration: none;
+	background-color: #FF6E19;
+	z-index: 1;
+	
+	-webkit-transition: all 0.1s;
+	-moz-transition: all 0.1s;
+	transition: all 0.1s;
+	
+	-webkit-box-shadow: 0rem 1rem 0rem #DD492C;
+    -moz-box-shadow: 0rem 1rem 0rem #DD492C;
+    box-shadow: 0rem 1rem 0rem #DD492C;
 }
+
+
 
 .input-group {
 	position: fixed;
-	top: 22.5rem;
+	top: 21rem;
 	font-family: Courier New;
 	font-size: 2rem;
 	border-radius: 2rem; 

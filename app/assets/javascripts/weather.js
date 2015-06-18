@@ -19,7 +19,8 @@ $(document).ready(function() {
 	  		disableDoubleClickZoom: true,
 	  		panControl: false,
 	  		zoomControl: false,
-	  		streetViewControl: false
+	  		streetViewControl: false,
+	  		mapTypeControl:false
 		};
 		
 		map = new google.maps.Map(document.getElementById("location"), mapOptions, {mapTypeId: google.maps.MapTypeId.ROADMAP});
@@ -96,7 +97,7 @@ $(document).ready(function() {
 
 	function IndexWeather(coordinates) {
 		$.ajax({
-			url: "http://localhost:3000/weather",
+			url: "http://localhost:3000/current_weather",
 			data: coordinates,
 			success: function(response){console.log("OK"); current_ul(response) },
 			error: function(){console.log("WRONG")},
@@ -132,7 +133,7 @@ $(document).ready(function() {
 	function ShowWeather(coordinates, date) {
 
     	$.ajax({
-			url: "http://localhost:3000/production",
+			url: "http://localhost:3000/history_weather",
 			data: {coordinates: coordinates, date: date},
 			success: function(response){console.log("OK"); monthly_ul(response)},
 			error: function(){console.log("WRONG")},
@@ -142,7 +143,7 @@ $(document).ready(function() {
 
 	function monthly_ul(history) {
 		
-		$("#zone").empty().append("LOCATION: " + history.zone);
+		$("#zone").empty().append("RADAR LOCATION: " + history.zone);
 		$("#celsius").empty().append("MONTHLY AVERAGE TEMPERATURE (ºC): " + history.monthly_temp);
 		$("#humidity").empty().append("MONTHLY AVERAGE HUMIDITY (%): " + history.monthly_humidity);
 		$("#water").empty().append("WATER PRODUCTION: " + (monthly_water_production(history)) + " L");

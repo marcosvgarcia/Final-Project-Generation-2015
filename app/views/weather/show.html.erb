@@ -1,9 +1,9 @@
 <div id="location" name="show"></div>
 
-<button><%= link_to(image_tag("https://cdn1.iconfinder.com/data/icons/utility/100/SVG_Utility-33-128.png", :class => "btn"), weather_path) %></button>
+<button><%= link_to(image_tag('D.png', :class => "btn"), index_path) %></button>
 
 <ul id="monthly-conditions">
-	<li id="zone">LOCATION: <%= @conditions.zone %></li>
+	<li id="zone">RADAR LOCATION: <%= @conditions.zone %></li>
 	<li id="celsius">MONTHLY AVERAGE TEMPERATURE (ºC): <%= @conditions.monthly_temp %></li>
 	<li id="humidity">MONTHLY AVERAGE HUMIDITY (%): <%= @conditions.monthly_humidity %></li>
 	<li id="water">WATER PRODUCTION: <%= (@conditions.monthly_water_production) %> L</li>
