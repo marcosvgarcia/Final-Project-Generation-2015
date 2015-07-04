@@ -1,0 +1,23 @@
+<div id="location" name="monthly"></div>
+
+<button><%= link_to(image_tag('D.png', :class => "btnday"), daily_path) %></button>
+<button><%= link_to(image_tag('M.png', :class => "btnmonth"), monthly_path) %></button>
+
+<ul id="monthly-conditions">
+	<li id="zone">RADAR LOCATION: <%= @conditions.zone %></li>
+	<li id="celsius">MONTHLY AVERAGE TEMPERATURE (ºC): <%= @conditions.monthly_temp %></li>
+	<li id="humidity">MONTHLY AVERAGE HUMIDITY (%): <%= @conditions.monthly_humidity %></li>
+	<li id="water">WATER PRODUCTION: <%= (@conditions.monthly_water_production) %> L</li>
+	<li id="date"><%= @conditions.MM %>/<%= @conditions.YYYY %></li>
+</ul>
+
+<input id="pac-input" name="InputMonthly" class="controls" type="text">
+
+<div class="input-group month">
+	<div class="input-group-addon">Month</div>
+	<%= select_month(Date.today, options = {:use_two_digit_numbers => true}, html_options = {:class => "form-control", :id => "month"}) %>
+</div>
+<div class="input-group year">
+	<div class="input-group-addon middle">Year</div>
+	<%= select_year(Date.today, {:start_year => Time.now.year, :end_year => Time.now.year - 25}, {:class => "form-control", :id => "year"}) %>
+</div>

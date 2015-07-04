@@ -1,0 +1,17 @@
+<div id="location" name="daily"></div>
+
+<button><%= link_to(image_tag('D.png', :class => "btnday"), daily_path) %></button>
+<button><%= link_to(image_tag('M.png', :class => "btnmonth"), monthly_path) %></button>
+
+<ul id="current_conditions">
+	<li id="zone">LOCATION:<br> <%= @conditions.country %>, <%= @conditions.city %></li>
+	<li id="fahrenheit">TEMPERATURE (ºF): <%= @conditions.fahrenheit %></li>
+	<li id="celsius">TEMPERATURE (ºC): <%= @conditions.celsius %></li>
+	<li id="humidity">HUMIDITY: <%= @conditions.humidity %></li>
+	<li id="wind">WIND: <%= @conditions.wind %></li>
+	<li id="water">WATER PRODUCTION: <%= @conditions.water_production %> L</li>
+</ul>
+
+<input id="pac-input" name="InputDaily" class="controls" type="text">
+
+

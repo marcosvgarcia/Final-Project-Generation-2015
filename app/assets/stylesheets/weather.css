@@ -3,7 +3,6 @@
   They will automatically be included in application.css.
 */
 
-
 #TechnoWeather {
 	position: fixed;
 	z-index: 1;
@@ -91,11 +90,11 @@ li {
 	width: 45rem;
 }
 
-input[name="InputIndex"] {
-	margin-top: 25.5rem;
+input[name="InputDaily"] {
+	margin-top: 25rem;
 }
 
-input[name="InputShow"] {
+input[name="InputMonthly"] {
 	margin-top: 25.5rem;
 }
 
@@ -104,7 +103,7 @@ input[name="InputShow"] {
 }
 
 #current_conditions {
-	margin-top: 27.5rem;
+	margin-top: 27rem;
 }
 
 #monthly-conditions {
@@ -113,10 +112,10 @@ input[name="InputShow"] {
 
 .btnday {
 	position: fixed;
-	left: 0.5rem;
-	bottom: 14rem;
-	height: 8rem;
-	width: 8rem;
+	left: 1rem;
+	bottom: 12rem;
+	height: 5rem;
+	width: 5rem;
 	border-radius: 50%;
 	text-decoration: none;
 	background-color: #FF6E19;
@@ -133,10 +132,10 @@ input[name="InputShow"] {
 
 .btnmonth {
 	position: fixed;
-	left: 0.5rem;
-	bottom: 4rem;
-	height: 8rem;
-	width: 8rem;
+	left: 1rem;
+	bottom: 5rem;
+	height: 5rem;
+	width: 5rem;
 	border-radius: 50%;
 	text-decoration: none;
 	background-color: #FF6E19;

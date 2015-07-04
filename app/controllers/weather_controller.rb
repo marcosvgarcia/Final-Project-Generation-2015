@@ -2,7 +2,7 @@ class WeatherController < ApplicationController
 
 	skip_before_action :verify_authenticity_token
 
-	def index
+	def daily
 
 		@conditions = Condition.new	
 
@@ -28,7 +28,7 @@ class WeatherController < ApplicationController
 		end
 	end
 
-	def show
+	def monthly
 
 		@conditions = Condition.new	
 

@@ -40,7 +40,7 @@ $(document).ready(function() {
 
     	coordinates = {latitude: lat, longitude: lng };
 
-    	if ($("#location").attr("name") === "show") {
+    	if ($("#location").attr("name") === "monthly") {
     		
 	    	MM = $("#month").val();
 	    	YYYY = $("#year").val();
@@ -48,10 +48,10 @@ $(document).ready(function() {
 	    	date = { month: MM, year: YYYY };
 	    }
 
-		if ($("#location").attr("name") === "index")
-			IndexWeather(coordinates);
+		if ($("#location").attr("name") === "daily")
+			DailyWeather(coordinates);
 		else
-			ShowWeather(coordinates, date);
+			MonthlyWeather(coordinates, date);
 	});
 	
 	google.maps.event.addListener(searchBox, 'places_changed', function() {
@@ -74,12 +74,12 @@ $(document).ready(function() {
     	latObj = bounds["za"];
     	lat = latObj["A"];
 
-    	lngObj = bounds["qa"];
+    	lngObj = bounds["ra"];
     	lng = lngObj["A"];
 
     	coordinates = {latitude: lat, longitude: lng };
 
-    	if ($("#location").attr("name") === "show") {
+    	if ($("#location").attr("name") === "monthly") {
 
 	    	MM = $("#month").val()
 	    	YYYY = $("#year").val()
@@ -87,15 +87,15 @@ $(document).ready(function() {
 	    	date = { month: MM, year: YYYY }
 	    }
 
-    	if ($("#location").attr("name") === "index")
-			IndexWeather(coordinates);
+    	if ($("#location").attr("name") === "daily")
+			DailyWeather(coordinates);
 		else
-			ShowWeather(coordinates, date);
+			MonthlyWeather(coordinates, date);
     });
 
-	//for index path
+	//for daily path
 
-	function IndexWeather(coordinates) {
+	function DailyWeather(coordinates) {
 		$.ajax({
 			url: "http://localhost:3000/current_weather",
 			data: coordinates,
@@ -107,7 +107,7 @@ $(document).ready(function() {
 
 	function current_ul(current) {
 		
-		$("#zone").empty().append("LOCATION: " + current.country + ", " + current.city);
+		$("#zone").empty().append("LOCATION:<br>" + current.country + ", " + current.city);
 		$("#fahrenheit").empty().append("TEMPERATURE (ºF): " + current.fahrenheit);
 		$("#celsius").empty().append("TEMPERATURE (ºC): " + current.celsius);
 		$("#humidity").empty().append("HUMIDITY: " + current.humidity);
@@ -128,9 +128,9 @@ $(document).ready(function() {
 		return Math.round(water_litres);
 	}
 
-	//for show path
+	//for monthly path
 
-	function ShowWeather(coordinates, date) {
+	function MonthlyWeather(coordinates, date) {
 
     	$.ajax({
 			url: "http://localhost:3000/history_weather",
