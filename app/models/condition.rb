@@ -36,6 +36,10 @@ class Condition
 
 		water_litres = k_humidity * k_temperature * 1000
 
+		if water_litres < 0
+			water_litres = 0
+		end
+
 		water_litres.round
 	end
 
@@ -136,6 +140,10 @@ class Condition
 
 		water_litres = k_humidity * k_temperature * 1000 * 30
 
+		if water_litres < 0
+			water_litres = 0
+		end
+		
 		water_litres.round
 	end
 end

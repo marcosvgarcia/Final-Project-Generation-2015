@@ -125,6 +125,10 @@ $(document).ready(function() {
 
 		var water_litres = k_humidity * k_temperature * 1000;
 
+		if (water_litres < 0) {
+			water_litres = 0;
+		}
+
 		return Math.round(water_litres);
 	}
 
@@ -158,6 +162,10 @@ $(document).ready(function() {
 
 		var water_litres = k_humidity * k_temperature * 1000 * 30;
 
+		if (water_litres < 0) {
+			water_litres = 0;
+		}
+		
 		return Math.round(water_litres);
 	}
 });
